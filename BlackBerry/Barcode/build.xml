@@ -1,0 +1,45 @@
+<project name="Package PhoneGap Plugin Source Code" default="help">
+    
+    <!-- PROPERTIES -->
+    
+    <property name="src.dir"             value="src" />
+    <property name="plugin.jar"          value="barcode-bbw.jar" />
+    
+    <!-- BUILD -->
+    
+    <target name="build" depends="clean">
+        <!-- Package the plugin source into a JAR file. -->
+        <zip compress="false" destfile="${plugin.jar}" basedir="${src.dir}" excludes="**/build/**,**/.settings/**,**/.project" />
+    </target>    
+
+    <!-- CLEAN -->
+    
+    <target name="clean">
+        <delete file="${plugin.jar}" />
+    </target>    
+    
+    <!-- HELP -->
+    
+    <target name="help">
+        <echo>
+NAME
+  ${ant.project.name}
+
+SYNOPSIS
+  ant COMMAND [-D&lt;argument&gt;=&lt;value&gt;]...
+
+DESCRIPTION
+  Use this script to package the Plugin source code into a Java archive file to be included in your PhoneGap project.
+
+COMMANDS
+  help .............. Show this help menu.
+                        ant, ant help
+
+  build ............. Packages plugin source into Java archive file.
+                        ant build
+                                              
+  clean ............. Remove existing archive file.
+                        ant clean
+        </echo>
+    </target>
+</project>
